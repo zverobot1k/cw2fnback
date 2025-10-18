@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Дневник — Блохин Максим</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="../images/icons/logo.svg" alt="Логотип" class="logo-img">
+      </div>
+      <div class="site-title">Блохин Максим</div>
+      <nav class="main-nav">
+        <a href="../index.html">Главная</a>
+        <a href="projects.html">Проекты</a>
+        <a href="diary.html" class="active">Дневник</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1>Мой учебный прогресс</h1>
+      <ul class="timeline">
+        <li><strong>16 окт</strong> — Верстка макета сайта ✓</li>
+        <li><strong>17 окт</strong> — JavaScript основы ✓</li>
+        <li><strong>18 ноб</strong> — Работа с формами — in progress</li>
+        <li><strong>01 дек</strong> — Адаптивный дизайн — in progress</li>
+      </ul>
+
+      <h2>Текущие курсы</h2>
+      <div class="skill">
+        <span>Веб-разработка</span>
+        <div class="bar"><div class="bar-fill" style="width:90%;">90%</div></div>
+      </div>
+      <div class="skill">
+        <span>JavaScript</span>
+        <div class="bar"><div class="bar-fill" style="width:70%;">70%</div></div>
+      </div>
+      <div class="skill">
+        <span>React</span>
+        <div class="bar"><div class="bar-fill" style="width:50%;">50%</div></div>
+      </div>
+
+      <button id="add-entry" class="btn">Добавить запись</button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year3"></span> Контакты: zverobot1k@yandex.ru</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

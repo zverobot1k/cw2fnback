@@ -1,0 +1,97 @@
+:root{
+  --bg:#f7f7f8;
+  --card:#fff;
+  --muted:#666;
+  --accent:#222;
+  --gap:18px;
+  --radius:6px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--accent);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.photo-profile {
+  width: 100%;            /* растягивается под контейнер */
+  height: 100%;
+  object-fit: cover;      /* изображение обрезается, но не искажается */
+  display: block;
+  border-radius: 8px;     /* совпадает со стилем контейнера */
+}
+
+
+.logo-img {
+  width: 48px;       /* размер логотипа */
+  height: auto;
+  display: block;
+}
+
+@media (max-width:720px) {
+  .logo-img {
+    width: 36px;     /* меньше на мобильных */
+  }
+}
+
+
+
+.container{max-width:980px;margin:24px auto;padding:0 16px}
+.site-header{background:transparent;padding:10px 0}
+.header-inner{display:flex;align-items:center;gap:16px;justify-content:space-between}
+.logo{font-weight:700}
+.site-title{font-size:1.1rem;color:var(--muted)}
+.main-nav a{margin-left:12px;text-decoration:none;color:var(--muted);padding:6px 8px;border-radius:4px}
+.main-nav a.active, .main-nav a:hover{color:var(--accent);background:rgba(0,0,0,0.04)}
+
+.card{background:var(--card);padding:18px;border-radius:8px;box-shadow:0 1px 0 rgba(0,0,0,0.04);margin-bottom:18px;border:1px solid rgba(0,0,0,0.03)}
+.hero{display:flex;gap:20px;align-items:center}
+.hero-left{flex:0 0 140px}
+.photo{width:140px;height:140px;border-radius:6px;background:linear-gradient(135deg,#e6e6e6,#dcdcdc);display:block}
+.hero-right h1{margin:0 0 8px;font-size:1.25rem}
+.btn{display:inline-block;padding:8px 12px;border-radius:6px;background:#111;color:#fff;text-decoration:none;border:none;cursor:pointer}
+.skills .skill{margin:12px 0}
+.skill span{display:block;color:var(--muted);margin-bottom:6px;font-size:0.95rem}
+.bar{background:#eee;border-radius:8px;height:22px;overflow:hidden}
+.bar-fill{height:100%;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;background:linear-gradient(90deg,#444,#222);color:#fff;font-size:0.85rem}
+
+.projects-grid{display:flex;gap:12px;flex-wrap:wrap}
+.project-card{display:inline-flex;align-items:center;justify-content:center;width:80px;height:80px;border:2px dashed #ddd;border-radius:6px;text-decoration:none;color:var(--muted)}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:14px}
+.project-item{padding:12px;border-radius:6px;border:1px solid rgba(0,0,0,0.05);display:flex;flex-direction:column;gap:8px;background:#fafafa}
+.project-item .thumb{flex:1;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:4px;padding:8px;text-align:center}
+.project-item button{align-self:flex-end;padding:6px 8px;border-radius:6px;border:none;background:#eee;cursor:pointer}
+
+.filters{display:flex;gap:8px;margin:8px 0}
+.filter-btn{padding:6px 10px;border-radius:6px;border:none;background:#eee;cursor:pointer}
+.filter-btn.active{background:#222;color:#fff}
+
+.site-footer{padding:18px 0;color:var(--muted);font-size:0.95rem;text-align:center}
+
+.modal{position:fixed;left:0;top:0;width:100%;height:100%;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);z-index:50}
+.modal[aria-hidden="false"]{display:flex}
+.modal-content{background:#fff;padding:20px;border-radius:8px;max-width:640px;width:94%;position:relative}
+.modal-close{position:absolute;right:10px;top:8px;border:none;background:transparent;font-size:22px;cursor:pointer}
+
+.timeline{list-style:none;padding-left:0}
+.timeline li{padding:6px 0;border-bottom:1px dashed #eee;color:var(--muted)}
+
+.contact-card label{display:block;margin-bottom:10px}
+.contact-card input, .contact-card textarea{width:100%;padding:8px;border:1px solid #ddd;border-radius:6px}
+.form-result{margin-top:12px;color:green}
+
+/* responsive */
+@media (max-width:720px){
+  .hero{flex-direction:column;align-items:flex-start}
+  .header-inner{flex-direction:column;align-items:flex-start;gap:8px}
+}

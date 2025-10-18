@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Проекты — Имя Студента</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="../images/icons/logo.svg" alt="Логотип" class="logo-img">
+      </div>
+      <div class="site-title">Имя Студента</div>
+      <nav class="main-nav">
+        <a href="../index.html">Главная</a>
+        <a href="projects.html" class="active">Проекты</a>
+        <a href="diary.html">Дневник</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1>Мои проекты</h1>
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Все</button>
+        <button class="filter-btn" data-filter="html">HTML</button>
+        <button class="filter-btn" data-filter="js">JS</button>
+        <button class="filter-btn" data-filter="react">React</button>
+      </div>
+
+      <div class="projects-grid cards">
+        <!-- Карточки проектов -->
+        <article class="project-item" data-type="html" tabindex="0" data-title="Личный сайт" data-desc="Статический сайт на HTML/CSS" data-img="">
+          <div class="thumb">Личный сайт<br><small>HTML, CSS</small></div>
+          <button class="open-modal">Подробнее</button>
+        </article>
+
+        <article class="project-item" data-type="js" tabindex="0" data-title="Todo-приложение" data-desc="SPA на чистом JS" data-img="">
+          <div class="thumb">Todo-приложение<br><small>JavaScript</small></div>
+          <button class="open-modal">Подробнее</button>
+        </article>
+
+        <article class="project-item" data-type="react" tabindex="0" data-title="Интернет-магазин" data-desc="Прототип на React" data-img="">
+          <div class="thumb">Интернет-магазин<br><small>React</small></div>
+          <button class="open-modal">Подробнее</button>
+        </article>
+
+        <article class="project-item" data-type="bootstrap" tabindex="0" data-title="Портфолио" data-desc="Сборка на Bootstrap" data-img="">
+          <div class="thumb">Портфолио<br><small>Bootstrap</small></div>
+          <button class="open-modal">Подробнее</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Модальное окно -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true">
+      <button id="modal-close" class="modal-close" aria-label="Закрыть">×</button>
+      <h3 id="modal-title"></h3>
+      <p id="modal-desc"></p>
+      <div class="modal-links">
+        <a id="modal-live" href="#" target="_blank" rel="noopener">Живая версия</a>
+        <a id="modal-src" href="#" target="_blank" rel="noopener">Исходный код</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year2"></span> Контакты: student@edu.ru</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

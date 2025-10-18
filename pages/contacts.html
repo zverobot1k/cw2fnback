@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Контакты — Максим Блохин</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="../images/icons/logo.svg" alt="Логотип" class="logo-img">
+      </div>
+      <div class="site-title">Имя Студента</div>
+      <nav class="main-nav">
+        <a href="../index.html">Главная</a>
+        <a href="projects.html">Проекты</a>
+        <a href="diary.html">Дневник</a>
+        <a href="contacts.html" class="active">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card contact-card">
+      <h1>Свяжитесь со мной</h1>
+      <form id="contact-form" novalidate>
+        <label>Имя:
+          <input type="text" name="name" id="name" required minlength="2">
+        </label>
+        <label>Email:
+          <input type="email" name="email" id="email" required>
+        </label>
+        <label>Сообщение:
+          <textarea name="message" id="message" required minlength="5"></textarea>
+        </label>
+        <button type="submit" class="btn">Отправить сообщение</button>
+        <p id="form-result" class="form-result" aria-live="polite"></p>
+      </form>
+
+      <div class="contacts-list">
+        <p>✉ student@edu.ru</p>
+        <p>🐙 GitHub: zverobot1k</p>
+        <p>📍 Москва, Россия</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year4"></span> Контакты: student@edu.ru</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

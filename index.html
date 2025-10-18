@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Имя Студента — Главная</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="images/icons/logo.svg" alt="Логотип" class="logo-img">
+      </div>
+      <div class="site-title">Имя Студента</div>
+      <nav class="main-nav">
+        <a href="index.html" class="active">Главная</a>
+        <a href="pages/projects.html">Проекты</a>
+        <a href="pages/diary.html">Дневник</a>
+        <a href="pages/contacts.html">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card hero">
+      <div class="hero-left">
+        <div class="photo" aria-hidden="true">
+            <img src="assets/photo.jpg" alt="ФотоПрофиля" class="photo-profile">
+        </div>
+      </div>
+      <div class="hero-right">
+        <h1>Привет! Я студент группы ЭФБ0-16-24</h1>
+        <p>Увлекаюсь веб-разработкой — верстаю, пишу JavaScript и собираю проекты.</p>
+        <p><a class="btn" href="assets/resume.png" download>Скачать резюме</a></p>
+      </div>
+    </section>
+
+    <section class="skills card">
+      <h2>Мои навыки</h2>
+      <div class="skill">
+        <span>HTML/CSS</span>
+        <div class="bar"><div class="bar-fill" style="width:90%;">90%</div></div>
+      </div>
+      <div class="skill">
+        <span>JavaScript</span>
+        <div class="bar"><div class="bar-fill" style="width:80%;">80%</div></div>
+      </div>
+      <div class="skill">
+        <span>Bootstrap</span>
+        <div class="bar"><div class="bar-fill" style="width:85%;">85%</div></div>
+      </div>
+      <div class="skill">
+        <span>React</span>
+        <div class="bar"><div class="bar-fill" style="width:60%;">60%</div></div>
+      </div>
+    </section>
+
+    <section class="projects-preview card">
+      <h2>Лучшие проекты</h2>
+      <div class="projects-grid">
+        <a class="project-card" href="pages/projects.html#p1">П1</a>
+        <a class="project-card" href="pages/projects.html#p2">П2</a>
+        <a class="project-card" href="pages/projects.html#p3">П3</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Контакты: student@edu.ru · GitHub: username</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
