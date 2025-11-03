@@ -5,12 +5,119 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Контакты — Максим Блохин</title>
   <link rel="stylesheet" href="../css/styles.css">
+
+  <style>
+    /* Skip-link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #000;
+      color: #fff;
+      padding: 8px 12px;
+      z-index: 100;
+      transition: top 0.3s;
+    }
+    .skip-link:focus-visible {
+      top: 10px;
+    }
+
+    /* Общий фокус */
+    :focus-visible {
+      outline: 3px solid #0077ff;
+      outline-offset: 3px;
+    }
+
+    /* Контактный контейнер с grid */
+    .contact-card {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* Форма */
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: .25rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: .5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: inherit;
+    }
+
+    input:focus-visible,
+    textarea:focus-visible {
+      border-color: #0077ff;
+      outline: 2px solid #0077ff;
+      outline-offset: 2px;
+    }
+
+    button.btn {
+      padding: .6rem 1rem;
+      border: none;
+      border-radius: 4px;
+      background-color: #0077ff;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button.btn:hover,
+    button.btn:focus-visible {
+      background-color: #005bcc;
+    }
+
+    .error-msg {
+      color: red;
+      font-size: 0.875rem;
+      display: none;
+    }
+
+    .error input,
+    .error textarea {
+      border-color: red;
+    }
+
+    .form-result {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    .contacts-list {
+      background: #f9f9f9;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    .contacts-list p {
+      margin: .5rem 0;
+    }
+  </style>
 </head>
 <body>
+  <a href="#main" class="skip-link">Перейти к содержимому</a>
+
   <header class="site-header">
     <div class="container header-inner">
       <div class="logo">
-        <img src="../images/icons/logo.svg" alt="Логотип" class="logo-img">
+        <img 
+          src="../images/icons/logo.svg" 
+          alt="Логотип" 
+          class="logo-img"
+          width="40" height="40"
+          loading="lazy">
       </div>
       <div class="site-title">Блохин Максим</div>
       <nav class="main-nav">
@@ -22,26 +129,37 @@
     </div>
   </header>
 
-  <main class="container">
+  <main id="main" class="container">
     <section class="card contact-card">
-      <h1>Свяжитесь со мной</h1>
-      <form id="contact-form" novalidate>
-        <label>Имя:
-          <input type="text" name="name" id="name" required minlength="2">
-        </label>
-        <label>Email:
-          <input type="email" name="email" id="email" required>
-        </label>
-        <label>Сообщение:
-          <textarea name="message" id="message" required minlength="5"></textarea>
-        </label>
-        <button type="submit" class="btn">Отправить сообщение</button>
-        <p id="form-result" class="form-result" aria-live="polite"></p>
-      </form>
+      <div>
+        <h1>Свяжитесь со мной</h1>
+        <form id="contact-form" novalidate>
+          <div>
+            <label for="name">Имя</label>
+            <input type="text" name="name" id="name" required minlength="2">
+            <p class="error-msg">Введите имя (минимум 2 символа)</p>
+          </div>
+
+          <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+            <p class="error-msg">Введите корректный email</p>
+          </div>
+
+          <div>
+            <label for="message">Сообщение</label>
+            <textarea name="message" id="message" rows="4" required minlength="5"></textarea>
+            <p class="error-msg">Введите сообщение (минимум 5 символов)</p>
+          </div>
+
+          <button type="submit" class="btn">Отправить сообщение</button>
+          <p id="form-result" class="form-result" aria-live="polite"></p>
+        </form>
+      </div>
 
       <div class="contacts-list">
-        <p>✉ student@edu.ru</p>
-        <p>🐙 GitHub: zverobot1k</p>
+        <p>✉ <a href="mailto:student@edu.ru">student@edu.ru</a></p>
+        <p>🐙 GitHub: <a href="https://github.com/zverobot1k" target="_blank" rel="noopener">zverobot1k</a></p>
         <p>📍 Москва, Россия</p>
       </div>
     </section>
@@ -52,6 +170,41 @@
       <p>© <span id="year4"></span> Контакты: student@edu.ru</p>
     </div>
   </footer>
+
+  <script>
+    // Простая валидация формы
+    const contactForm = document.getElementById('contact-form');
+    const result = document.getElementById('form-result');
+
+    contactForm.addEventListener('submit', e => {
+      e.preventDefault();
+      let valid = true;
+      contactForm.querySelectorAll('[required]').forEach(field => {
+        const msg = field.nextElementSibling;
+        if (
+          !field.value.trim() ||
+          (field.type === 'email' && !field.value.includes('@')) ||
+          (field.hasAttribute('minlength') && field.value.trim().length < field.minLength)
+        ) {
+          field.parentElement.classList.add('error');
+          msg.style.display = 'block';
+          valid = false;
+        } else {
+          field.parentElement.classList.remove('error');
+          msg.style.display = 'none';
+        }
+      });
+
+      if (valid) {
+        result.textContent = "Сообщение успешно отправлено!";
+        result.style.color = "green";
+        contactForm.reset();
+      } else {
+        result.textContent = "Проверьте правильность заполнения формы.";
+        result.style.color = "red";
+      }
+    });
+  </script>
 
   <script src="../js/main.js"></script>
 </body>

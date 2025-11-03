@@ -3,14 +3,84 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Проекты — Имя Студента</title>
+  <title>Проекты — Блохин Максим</title>
   <link rel="stylesheet" href="../css/styles.css">
+
+  <style>
+    /* Skip-link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #000;
+      color: #fff;
+      padding: 8px 12px;
+      z-index: 100;
+      transition: top 0.3s;
+    }
+    .skip-link:focus-visible {
+      top: 10px;
+    }
+
+    /* Фокус */
+    :focus-visible {
+      outline: 3px solid #0077ff;
+      outline-offset: 3px;
+    }
+
+    /* Grid-сетка */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .project-item {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      background: #fff;
+      text-align: center;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .project-item:hover,
+    .project-item:focus-visible {
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    }
+
+    .thumb img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    /* Пример простой формы */
+    .feedback-form {
+      margin-top: 2rem;
+      display: grid;
+      gap: 1rem;
+      max-width: 400px;
+    }
+
+    .error-msg {
+      color: red;
+      font-size: 0.875rem;
+      display: none;
+    }
+
+    .error input {
+      border-color: red;
+    }
+  </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
   <header class="site-header">
     <div class="container header-inner">
       <div class="logo">
-        <img src="../images/icons/logo.svg" alt="Логотип" class="logo-img">
+        <img src="../images/icons/logo.svg" alt="Логотип" class="logo-img" width="40" height="40" loading="lazy">
       </div>
       <div class="site-title">Блохин Максим</div>
       <nav class="main-nav">
@@ -22,7 +92,7 @@
     </div>
   </header>
 
-  <main class="container">
+  <main id="main" class="container">
     <section class="card">
       <h1>Мои проекты</h1>
       <div class="filters">
@@ -33,27 +103,83 @@
       </div>
 
       <div class="projects-grid cards">
-        <!-- Карточки проектов -->
-        <article class="project-item" data-type="html" tabindex="0" data-title="Личный сайт" data-desc="Статический сайт на HTML/CSS" data-img="">
-          <div class="thumb">Личный сайт<br><small>HTML, CSS</small></div>
+        <!-- Пример адаптивных карточек -->
+        <article class="project-item" data-type="html" tabindex="0">
+          <div class="thumb">
+            <img 
+              src="../images/projects/site-400.jpg"
+              srcset="../images/projects/site-400.jpg 400w, ../images/projects/site-800.jpg 800w"
+              sizes="(max-width: 600px) 100vw, 50vw"
+              width="400" height="250"
+              alt="Личный сайт — HTML и CSS"
+              loading="lazy">
+            <p>Личный сайт<br><small>HTML, CSS</small></p>
+          </div>
           <button class="open-modal">Подробнее</button>
         </article>
 
-        <article class="project-item" data-type="js" tabindex="0" data-title="Todo-приложение" data-desc="SPA на чистом JS" data-img="">
-          <div class="thumb">Todo-приложение<br><small>JavaScript</small></div>
+        <article class="project-item" data-type="js" tabindex="0">
+          <div class="thumb">
+            <img 
+              src="../images/projects/todo-400.jpg"
+              srcset="../images/projects/todo-400.jpg 400w, ../images/projects/todo-800.jpg 800w"
+              sizes="(max-width: 600px) 100vw, 50vw"
+              width="400" height="250"
+              alt="Todo-приложение — JavaScript"
+              loading="lazy">
+            <p>Todo-приложение<br><small>JavaScript</small></p>
+          </div>
           <button class="open-modal">Подробнее</button>
         </article>
 
-        <article class="project-item" data-type="react" tabindex="0" data-title="Интернет-магазин" data-desc="Прототип на React" data-img="">
-          <div class="thumb">Интернет-магазин<br><small>React</small></div>
+        <article class="project-item" data-type="react" tabindex="0">
+          <div class="thumb">
+            <img 
+              src="../images/projects/shop-400.jpg"
+              srcset="../images/projects/shop-400.jpg 400w, ../images/projects/shop-800.jpg 800w"
+              sizes="(max-width: 600px) 100vw, 50vw"
+              width="400" height="250"
+              alt="Интернет-магазин — React"
+              loading="lazy">
+            <p>Интернет-магазин<br><small>React</small></p>
+          </div>
           <button class="open-modal">Подробнее</button>
         </article>
 
-        <article class="project-item" data-type="bootstrap" tabindex="0" data-title="Портфолио" data-desc="Сборка на Bootstrap" data-img="">
-          <div class="thumb">Портфолио<br><small>Bootstrap</small></div>
+        <article class="project-item" data-type="bootstrap" tabindex="0">
+          <div class="thumb">
+            <img 
+              src="../images/projects/portfolio-400.jpg"
+              srcset="../images/projects/portfolio-400.jpg 400w, ../images/projects/portfolio-800.jpg 800w"
+              sizes="(max-width: 600px) 100vw, 50vw"
+              width="400" height="250"
+              alt="Портфолио — Bootstrap"
+              loading="lazy">
+            <p>Портфолио<br><small>Bootstrap</small></p>
+          </div>
           <button class="open-modal">Подробнее</button>
         </article>
       </div>
+    </section>
+
+    <!-- Пример формы с валидацией -->
+    <section aria-labelledby="feedback-title">
+      <h2 id="feedback-title">Обратная связь</h2>
+      <form class="feedback-form" id="feedbackForm" novalidate>
+        <div>
+          <label for="name">Имя</label>
+          <input type="text" id="name" name="name" required>
+          <p class="error-msg">Введите имя</p>
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+          <p class="error-msg">Введите корректный email</p>
+        </div>
+
+        <button type="submit">Отправить</button>
+      </form>
     </section>
   </main>
 
@@ -75,6 +201,27 @@
       <p>© <span id="year2"></span> Контакты: student@edu.ru</p>
     </div>
   </footer>
+
+  <script>
+    // Пример простой валидации формы
+    const form = document.getElementById('feedbackForm');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      let valid = true;
+      form.querySelectorAll('input[required]').forEach(input => {
+        const msg = input.nextElementSibling;
+        if (!input.value.trim() || (input.type === 'email' && !input.value.includes('@'))) {
+          input.parentElement.classList.add('error');
+          msg.style.display = 'block';
+          valid = false;
+        } else {
+          input.parentElement.classList.remove('error');
+          msg.style.display = 'none';
+        }
+      });
+      if (valid) alert('Форма отправлена!');
+    });
+  </script>
 
   <script src="../js/main.js"></script>
 </body>
